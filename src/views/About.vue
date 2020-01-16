@@ -32,7 +32,9 @@ export default class About extends Vue {
 
   public created() {
     UserModule.Login('sdas');
-    this.http.get('jj', 'da', 'dasf', {})
+    this.http.post('jj', 'da', 'dasf', {
+      page: 1
+    })
     .then((res: any) => {
       console.log(res);
     });

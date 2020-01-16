@@ -18,13 +18,13 @@ export default class Request {
     module: string,
     id: string,
     action: string,
-    params: {},
+    params: object,
   ) {
     const url = module + '/' + id + '/' + action;
     return new Promise((resolve, reject) => {
       const options = {
         url,
-        data: params
+        params
       };
       this.service(options)
         .then((res: any) => {

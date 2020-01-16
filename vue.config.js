@@ -1,4 +1,6 @@
 module.exports = {
+  productionSourceMap: process.env.NODE_ENV === 'production'  ? false: true,
+  outputDir: process.env.outputDir,
   devServer: {
     // 配置服务器代理
     proxy: {

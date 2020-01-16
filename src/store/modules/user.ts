@@ -14,16 +14,17 @@ export interface IUserState {
 
 @Module({ dynamic: true, store, name: 'user' })
 class User extends VuexModule implements IUserState {
+  // tslint:disable-next-line:variable-name
   public id_token = '';
-
-  @Mutation
-  private SET_TOKEN(token: string) {
-    this.id_token = token;
-  }
 
   @Action
   public async Login(params: any) {
     this.SET_TOKEN(`token!!!`);
+  }
+
+  @Mutation
+  private SET_TOKEN(token: string) {
+    this.id_token = token;
   }
 }
 

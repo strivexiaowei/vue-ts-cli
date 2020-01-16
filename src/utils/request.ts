@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig, CancelTokenStatic } from 'axios';
+import axios from 'axios';
 import { UserModule } from '@/store/modules/user';
 export default class Request {
   protected service: any;
@@ -6,7 +6,7 @@ export default class Request {
   constructor() {
     this.token = UserModule.id_token;
     this.service = axios.create({
-      baseURL: 'http://10.222.10.77:8080/',
+      baseURL: process.env.VUE_APP_SERVER_URL,
       timeout: 5000,
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
@@ -66,7 +66,7 @@ export default class Request {
       (config: any) => {
         if (this.token) {
           console.log(this.token);
-          config.headers['authorization'] = this.token;
+          config.headers.authorization = this.token;
         }
         return config;
       },
